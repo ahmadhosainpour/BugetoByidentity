@@ -1,0 +1,13 @@
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\bin\Debug\net8.0\Bugeto_store.Domain.deps.json
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\bin\Debug\net8.0\Bugeto_store.Domain.dll
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\bin\Debug\net8.0\Bugeto_store.Domain.pdb
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.csproj.AssemblyReference.cache
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.AssemblyInfoInputs.cache
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.AssemblyInfo.cs
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.csproj.CoreCompileInputs.cache
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.dll
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\refint\Bugeto_store.Domain.dll
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.pdb
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\ref\Bugeto_store.Domain.dll
+C:\Users\a.hoseinpour\source\repos\Bugeto_store\Bugeto_store.Domain\obj\Debug\net8.0\Bugeto_store.Domain.sourcelink.json

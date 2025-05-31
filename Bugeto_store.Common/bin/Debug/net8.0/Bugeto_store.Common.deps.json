@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Bugeto_store.Common/1.0.0": {
+        "runtime": {
+          "Bugeto_store.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bugeto_store.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
