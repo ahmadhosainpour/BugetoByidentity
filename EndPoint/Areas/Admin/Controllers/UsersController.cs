@@ -59,7 +59,8 @@ namespace EndPoint.Areas.Admin.Controllers
         public async Task<IActionResult> ChangePassword(List<User> Users)
         {
 
-            var selectedUsers = Users.Where(u => u.IsSelected).ToList();
+            var selectedUsers = Users.Where(u => u.IsSelected).ToList();//دریافت لیست کاربر انتخاب شده
+
 
           
                 return View(selectedUsers);
