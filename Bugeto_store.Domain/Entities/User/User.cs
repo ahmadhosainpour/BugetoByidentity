@@ -22,7 +22,7 @@ namespace Bugeto_store.Domain.Entities.User
         public string PassWord { get; set; }
         public string ConfirmPassWord { get; set; }
         public string Role { get; set; }
-        public string isdisabled { get; set; }
+        //public string isdisabled { get; set; }
         public bool IsSelected { get; set; }
         public ICollection<UserInRole> userInRoles { get; set; }
 
