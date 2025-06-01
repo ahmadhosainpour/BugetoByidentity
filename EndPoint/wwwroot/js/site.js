@@ -12,14 +12,6 @@ function closeCenteredModal() {
 
 
 
-function checkedbox() {
-var checkbox = document.getElementById('selectedcheckbox');
-        if (checkbox.checked) {
-            console.log('1');
-        }
-        else { console.log(false); }
-    } 
-
 
 
 
@@ -45,4 +37,5 @@ document.getElementById('centeredModal2').addEventListener('click', function (ev
         closeCenteredModal2();
     }
 });
+
 

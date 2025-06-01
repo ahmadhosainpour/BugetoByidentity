@@ -70,6 +70,23 @@ namespace EndPoint.Areas.Admin.Controllers
         }
 
 
+        [Area("Admin")]
+        [HttpPost]
+        public async Task<IActionResult> DisableUser(List<User> Users)
+        {
+
+            var selectedUsers = Users.Where(u => u.IsSelected).ToList();//دریافت لیست کاربر انتخاب شده
+
+
+
+            return View(selectedUsers);
+
+
+
+        }
+
+        
+
 
         [Area("Admin")]
         public IActionResult ChangePassword()
@@ -82,8 +99,26 @@ namespace EndPoint.Areas.Admin.Controllers
             }
         }
 
+        //[Area("Admin")]
+        //[HttpPost]
+        //public async Task<IActionResult> search(string name)
+        //{
 
+        //    if (!string.IsNullOrEmpty(name))
+        //    {
+        //        var result = _context.Users.Where(p => p.FullName.ToLower().Contains(name));
+        //    }
+        //    return View();
+        //}
 
+        //[Area("Admin")]
+     
+        //public IActionResult search()
+        //{
+
+        
+        //    return View();
+        //}
 
 
 

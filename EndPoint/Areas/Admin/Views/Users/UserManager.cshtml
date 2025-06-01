@@ -561,12 +561,16 @@
                                                 <input type="submit" value="ایجادکاربر" class="btn btn-block btn-primary" asp-action="ModifyUser" />
                                                 <!-- Centered Modal -->
                                             </form>
+                                            
                                             <form>
                                                 <div id="centeredModal" class="modal-overlay" style="display:none;">
                                                     <div class="modal-box">
                                                         <span class="close-btn" onclick="closeCenteredModal()">&times;</span>
                                                         <h2>لیست کاربر</h2>
 
+                                                        <div class="mb-3">
+                                                            <input type="text" class="form-control" id="searchInput" placeholder="جستجو در نام کاربر...">
+                                                        </div>
 
 
                                                         @if ((Model == null || !Model.Any()) )
@@ -581,7 +585,12 @@
                                                         else
                                                         {
                                                             <h5 style="color:red">(برای حذف کاربر راانتخاب نموده وبه پایین صفحه مراجعه نمایید) </h5>
-                                                            <table id="usersTable" class="table-bordered table-active table-hover table-info border-dark">
+
+                                                            
+
+                                                         
+                                                          
+                                                            <table id="usersTable" class="table border border-4 table-hover  ">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>نام کاربر</th>
@@ -611,12 +620,29 @@
                                                        
                                                             <input type="submit" value="تاریخچه" class="btn btn-primary" formaction="@Url.Action("History", "Users")" />
                                                             <input type="submit" formmethod="post"  value="تغییر کلمه عبور" class="btn btn-info" formaction="@Url.Action("ChangePassword", "Users")" />
-                                                            <input type="submit" value="غیرفعال کردن کاربر" class="btn btn-danger" formaction="@Url.Action("DisableUser", "Users")" />
+                                                            <input type="submit" formmethod="post" value="غیرفعال کردن کاربر" class="btn btn-danger" formaction="@Url.Action("DisableUser", "Users")" />
                                                             <input type="submit" value="حذف" class="btn btn-danger m-2" formaction="@Url.Action("DeleteUsers", "Users")" />
 
 
                                                         }
+                                                        <script>
+                                                            document.getElementById('searchInput').addEventListener('input', function() {
+                                                                var filter = this.value.toLowerCase();
+                                                                var table = document.getElementById('usersTable');
+                                                                var tbody = table.querySelector('tbody');
+                                                                var rows = tbody.querySelectorAll('tr');
 
+                                                                rows.forEach(function(row) {
+                                                                    var nameCell = row.querySelector('td:first-child'); // ستون نام کاربر
+                                                                    var nameText = nameCell.textContent || nameCell.innerText;
+                                                                    if (nameText.toLowerCase().includes(filter)) {
+                                                                        row.style.display = '';
+                                                                    } else {
+                                                                        row.style.display = 'none';
+                                                                    }
+                                                                });
+                                                            });
+                                                        </script>
 
 
                                                     </div>

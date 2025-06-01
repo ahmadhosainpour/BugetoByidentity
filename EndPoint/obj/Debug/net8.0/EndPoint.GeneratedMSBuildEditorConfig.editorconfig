@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcTW9kaWZ5VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/a.hoseinpour/source/repos/Bugeto_store/EndPoint/Areas/Admin/Views/Users/search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcc2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/a.hoseinpour/source/repos/Bugeto_store/EndPoint/Areas/Admin/Views/Users/UserManager.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcVXNlck1hbmFnZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
