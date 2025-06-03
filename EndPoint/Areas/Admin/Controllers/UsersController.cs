@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System.Data;
 
 
@@ -45,7 +46,7 @@ namespace EndPoint.Areas.Admin.Controllers
         {
 
             var user = await _context.Users.ToListAsync();
-            ViewBag.context = user;
+          
           
                 return View(user);
  
@@ -74,18 +75,46 @@ namespace EndPoint.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DisableUser(List<User> Users)
         {
-
+            var user = await _context.Users.ToListAsync();
             var selectedUsers = Users.Where(u => u.IsSelected).ToList();//دریافت لیست کاربر انتخاب شده
-
-
-
-            return View(selectedUsers);
+            foreach (var item in selectedUsers)
+            {
+                var result = _context.Users.Where(p => p.ID == item.ID);
+                foreach (var item1 in result)
+                {
+                    item1.isdisabled = true;
+                }
+                await _context.SaveChangesAsync();
+            }
+                return View("UserManager");
+            
 
 
 
         }
-
         
+
+        [Area("Admin")]
+        [HttpPost]
+        public async Task<IActionResult> EnableleUser(List<User> Users)
+        {
+            var user = await _context.Users.ToListAsync();
+            var selectedUsers = Users.Where(u => u.IsSelected).ToList();//دریافت لیست کاربر انتخاب شده
+            foreach (var item in selectedUsers)
+            {
+                var result = _context.Users.Where(p => p.ID == item.ID);
+                foreach (var item1 in result)
+                {
+                    item1.isdisabled = false;
+                }
+                await _context.SaveChangesAsync();
+            }
+            return View("UserManager");
+
+
+
+
+        }
 
 
         [Area("Admin")]
@@ -198,47 +227,47 @@ namespace EndPoint.Areas.Admin.Controllers
             return View();
             // }
         }
-        [Area("Admin")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string fullname, string email, string password)
-        {
+        //[Area("Admin")]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(string fullname, string email, string password)
+        //{
 
-            var users = _context.Users.Find(TempData["id"]);
-            if (ViewBag.id != users.ID)
-
-
-                users.Email = email;
-            users.FullName = fullname;
-            await _context.SaveChangesAsync();
+        //    var users = _context.Users.Find(TempData["id"]);
+        //    if (ViewBag.id != users.ID)
 
 
-
-            return RedirectToAction("UserManager");
-
-
-        }
-
-
-        [Area("Admin")]
-        public IActionResult Edit()
-        {
+        //        users.Email = email;
+        //    users.FullName = fullname;
+        //    await _context.SaveChangesAsync();
 
 
 
-
-            return View();
-
-
-        }
-        [Area("Admin")]
-        public async Task<IActionResult> ModifyUser()
-        {
+        //    return RedirectToAction("UserManager");
 
 
-            return View();
-        }
-        [Area("Admin")]
+        //}
+
+
+        //[Area("Admin")]
+        //public IActionResult Edit()
+        //{
+
+
+
+
+        //    return View();
+
+
+        //}
+        //[Area("Admin")]
+        //public async Task<IActionResult> ModifyUser()
+        //{
+
+
+        //    return View();
+        //}
+        //[Area("Admin")]
         public IActionResult DeleteOrEdit()
         {
             User user = new User

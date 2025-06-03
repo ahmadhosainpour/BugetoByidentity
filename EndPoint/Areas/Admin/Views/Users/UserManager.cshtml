@@ -181,7 +181,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="~/AdminTemplate/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
+                style="opacity: .8">
                 <span class="brand-text font-weight-light">پنل مدیریت</span>
             </a>
 
@@ -547,7 +547,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>لیست کاربران</label>
-                                       
+
 
 
 
@@ -561,7 +561,7 @@
                                                 <input type="submit" value="ایجادکاربر" class="btn btn-block btn-primary" asp-action="ModifyUser" />
                                                 <!-- Centered Modal -->
                                             </form>
-                                            
+
                                             <form>
                                                 <div id="centeredModal" class="modal-overlay" style="display:none;">
                                                     <div class="modal-box">
@@ -586,17 +586,19 @@
                                                         {
                                                             <h5 style="color:red">(برای حذف کاربر راانتخاب نموده وبه پایین صفحه مراجعه نمایید) </h5>
 
-                                                            
 
-                                                         
-                                                          
+
+
+
                                                             <table id="usersTable" class="table border border-4 table-hover  ">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>نام کاربر</th>
                                                                         <th>آدرس ایمیل</th>
                                                                         <th>نقش</th>
+                                                                        <th>وضعیت</th>
                                                                         <th>انتخاب</th>
+
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -606,11 +608,22 @@
                                                                             <td>@item.FullName</td>
                                                                             <td>@item.Email</td>
                                                                             <td>@item.Role</td>
+                                                                            @if (item.isdisabled)
+                                                                            {
+                                                                                <td>غیرفعال</td>
+                                                                            }else
+                                                                            {
+                                                                                <td>فعال</td>
+                                                                            }
+
+                                                                       
 
                                                                             <td>
                                                                                 <input type="hidden" name="Users[@index].FullName" value="@item.FullName" />
                                                                                 <input type="hidden" name="Users[@index].Password" value="@item.PassWord" />
+                                                                                <input type="hidden" name="Users[@index+1].isdisabled" value="true" />
                                                                                 <input type="checkbox" name="Users[@index].IsSelected" value="true" class="custom-checkbox m-1" />
+                                                                                <input type="hidden" name="Users[@index].ID" value="@item.ID" />
                                                                             </td>
                                                                         </tr>
                                                                         index++;
@@ -621,6 +634,7 @@
                                                             <input type="submit" value="تاریخچه" class="btn btn-primary" formaction="@Url.Action("History", "Users")" />
                                                             <input type="submit" formmethod="post"  value="تغییر کلمه عبور" class="btn btn-info" formaction="@Url.Action("ChangePassword", "Users")" />
                                                             <input type="submit" formmethod="post" value="غیرفعال کردن کاربر" class="btn btn-danger" formaction="@Url.Action("DisableUser", "Users")" />
+                                                             <input type="submit" formmethod="post" value="فعال کردن کاربر" class="btn btn-danger" formaction="@Url.Action("EnableleUser", "Users")" />
                                                             <input type="submit" value="حذف" class="btn btn-danger m-2" formaction="@Url.Action("DeleteUsers", "Users")" />
 
 

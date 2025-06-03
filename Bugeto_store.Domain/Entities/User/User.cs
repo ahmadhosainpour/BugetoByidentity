@@ -11,8 +11,7 @@ namespace Bugeto_store.Domain.Entities.User
 {
     public class User
     {
-        [HiddenInput(DisplayValue = false)]
-        [ScaffoldColumn(false)]
+      
         
         public int ID { get; set  ; } 
         [DisplayName("نام کاربر")]
@@ -22,8 +21,8 @@ namespace Bugeto_store.Domain.Entities.User
         public string PassWord { get; set; }
         public string ConfirmPassWord { get; set; }
         public string Role { get; set; }
-       public string isdisabled { get; set; }
-        public bool IsSelected { get; set; }
+       public bool isdisabled { get; set; }
+        public bool IsSelected { get; set; } 
         public ICollection<UserInRole> userInRoles { get; set; }
 
     }
