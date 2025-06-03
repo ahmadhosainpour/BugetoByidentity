@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bugeto_store.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39f5f9e7307024b1479a609cba131f99e05a8091")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+734bd4392aa127c287465316e69c5ea3bd738ae6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bugeto_store.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bugeto_store.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
