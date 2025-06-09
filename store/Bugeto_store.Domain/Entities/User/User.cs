@@ -15,13 +15,21 @@ namespace Bugeto_store.Domain.Entities.User
         
         public int ID { get; set  ; } 
         [DisplayName("نام کاربر")]
+        [Required]
         public string FullName { get; set; }
         [DisplayName("آدرس ایمیل")]
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
         public string PassWord { get; set; }
+        [Required]
+        [Compare(nameof(PassWord))]
         public string ConfirmPassWord { get; set; }
+        [Required]
         public string Role { get; set; }
-       public bool isdisabled { get; set; }
+        [Required]
+        public bool isdisabled { get; set; }
         public bool IsSelected { get; set; } 
         public ICollection<UserInRole> userInRoles { get; set; }
 
