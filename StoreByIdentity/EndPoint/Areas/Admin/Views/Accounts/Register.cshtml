@@ -1,5 +1,5 @@
-﻿@using Bugeto_store.Domain.Entities.User;
-@inject SignInManager<IdentityUser> SignInManager
+﻿@using EndPoint.Areas.Admin.ViewModel;
+@inject SignInManager<IdentityUser> SignInManager//بررسی لاگین بودن کاربر
 @model User
 @{
     int index = 0;
@@ -553,7 +553,7 @@
                                                 <div class="container-login100-form-btn">
 
 
-                                                    <input class="input100 login100-form-btn"   type="submit" value="خروج" formaction="@Url.Action("Login", "Accounts")">
+                                                    <input class="input100 login100-form-btn" type="submit" value="خروج" asp-action="LogOut" asp-controller="Accounts"  formmethod="post">
                                                 </div>
 
                                             }

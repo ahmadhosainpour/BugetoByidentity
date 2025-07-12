@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Bugeto_store.Domain.Entities.User;
+@model User
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -378,18 +380,26 @@
 					<div class="form-row">
 						<input type="text" name="fullName" id="full-name" class="input-text" placeholder="نام کاربری خود را وارد نمایید" required>
 					</div>
-					<div class="form-row">
-						<input type="text" name="email" id="your-email" class="input-text" placeholder="آدرس ایمیل را وراد نمایید" >
-					</div>
+                    <div class="form-row">
+                        <input asp-for="Email" class="input-text" placeholder="آدرس ایمیل را وراد نمایید name="email" id="your-email" class="input-text" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+					@* <div class="form-row">
+                      
+                        <input type="text" asp-validation-for="email" name="email" id="your-email" class="input-text" placeholder="آدرس ایمیل را وراد نمایید">
+					</div> *@
 				</div>
 
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="password" name="password" id="password" class="input-text" placeholder="رمزعبور" required>
+                        <input type="password" asp-for="PassWord" name="password" id="password" class="input-text" placeholder="رمزعبور" required>
+                        <span asp-validation-for="PassWord" class="text-danger"></span>
 					</div>
+
                     <div class="form-row">
-                        <input type="password" name="confirmpassword" id="confirmpassword" class="input-text" placeholder="تکراررمزعبور" required>
-                    </div>
+                        <input type="password" asp-for="ConfirmPassWord" name="confirmpassword" id="confirmpassword" class="input-text" placeholder="تکراررمزعبور" required>
+                        <span asp-validation-for="ConfirmPassWord" ></span>
+                    </div> 
                     
 				</div>
                 <div class="form-row-total">

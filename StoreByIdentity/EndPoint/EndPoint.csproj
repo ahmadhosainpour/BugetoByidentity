@@ -18,6 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.7" />
+    <PackageReference Include="bootstrap-tagsinput" Version="1.8.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -33,7 +35,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bugeto_store.Persistence\Bugeto_store.Persistence.csproj" />
-    <ProjectReference Include="..\Buget_store.Application\Buget_store.Application.csproj" />
   </ItemGroup>
 
 </Project>

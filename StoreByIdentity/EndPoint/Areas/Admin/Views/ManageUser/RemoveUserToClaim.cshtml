@@ -1,0 +1,498 @@
+﻿@using Bugeto_store.Domain.Entities
+@model AddOrRemoveClaimViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>حذف claim کاربر</title>
+    <meta charset="utf-8">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font-->
+    <link href="~/admintemplate/css/nunito-font.css" rel="stylesheet" />
+    <!-- Main Style Css -->
+    <link href="~/admintemplate/css/ModifyUser.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>پنل مدیریت | داشبورد اول</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/adminlte.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/iCheck/flat/blue.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/morris/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/daterangepicker/daterangepicker-bs3.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- bootstrap rtl -->
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/bootstrap-rtl.min.css">
+    <!-- template rtl version -->
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/custom-style.css">
+</head>
+<body>
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src="~/AdminTemplate/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">پنل مدیریت</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar" style="direction: ltr">
+            <div style="direction: rtl">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">حسام موسوی</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <form action="" method="post">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fa fa-dashboard"></i>
+                                    <p>
+                                        کاربران
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" asp-area="Admin" asp-controller="Users" asp-action="UserManager">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>  مدیریت کاربران</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./index2.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>داشبورد دوم</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./index3.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>داشبورد سوم</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/widgets.html" class="nav-link">
+                                    <i class="nav-icon fa fa-th"></i>
+                                    <p>
+                                        ویجت‌ها
+                                        <span class="right badge badge-danger">جدید</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-pie-chart"></i>
+                                    <p>
+                                        چارت‌ها
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/charts/chartjs.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نمودار ChartJS</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/flot.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نمودار Flot</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/inline.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>نمودار Inline</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-tree"></i>
+                                    <p>
+                                        اشیای گرافیکی
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/UI/general.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>عمومی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/UI/icons.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>آیکون‌ها</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/UI/buttons.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>دکمه‌ها</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/UI/sliders.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>اسلایدر‌ها</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-edit"></i>
+                                    <p>
+                                        فرم‌ها
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/forms/general.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>اجزا عمومی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/forms/advanced.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>پیشرفته</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/forms/editors.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>ویشرایشگر</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-table"></i>
+                                    <p>
+                                        جداول
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/tables/simple.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>جداول ساده</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/tables/data.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>جداول داده</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-header">مثال‌ها</li>
+                            <li class="nav-item">
+                                <a href="pages/calendar.html" class="nav-link">
+                                    <i class="nav-icon fa fa-calendar"></i>
+                                    <p>
+                                        تقویم
+                                        <span class="badge badge-info right">2</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-envelope-o"></i>
+                                    <p>
+                                        ایمیل‌ باکس
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/mailbox/mailbox.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>اینباکس</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/mailbox/compose.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>ایجاد</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/mailbox/read-mail.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>خواندن</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-book"></i>
+                                    <p>
+                                        صفحات
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/examples/invoice.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>سفارشات</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/profile.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>پروفایل</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/login.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>صفحه ورود</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/register.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>صفحه عضویت</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/lockscreen.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>قفل صفحه</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-plus-square-o"></i>
+                                    <p>
+                                        بیشتر
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/examples/404.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>ارور 404</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/500.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>ارور 500</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/examples/blank.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>صفحه خالی</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="starter.html" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>صفحه شروع</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-header">متفاوت</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-file"></i>
+                                    <p>مستندات</p>
+                                </a>
+                            </li>
+                            <li class="nav-header">برچسب‌ها</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o text-danger"></i>
+                                    <p class="text">مهم</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o text-warning"></i>
+                                    <p>هشدار</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o text-info"></i>
+                                    <p>اطلاعات</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </form>
+                <!-- /.sidebar-menu -->
+            </div>
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+
+    <div class="page-content">
+        <div class="form-v9-content">
+
+            <h2> کاربر: @ViewBag.user</h2>
+
+            <form asp-controller="ManageUser" asp-action="RemoveUserToClaim" method="post">
+                <input type="hidden" asp-for="UserId" />
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>انتخاب</th>
+                            <th>نام نقش</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.UserClaims.Count; i++)
+                        {
+                                <tr>
+                                    <td>
+                                        <input asp-for="UserClaims[@i].IsSelected" />
+                                        <input type="hidden" asp-for="UserClaims[@i].ClaimType" />
+                                    </td>
+                                    <td>@Model.UserClaims[i].ClaimType</td>
+                                </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <button type="submit" class="btn btn-danger">delete</button>
+            </form>
+    </div>
+
+
+
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminTemplate/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminTemplate/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="~/AdminTemplate/plugins/morris/morris.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+
+    <script src="~/AdminTemplate/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/AdminTemplate/plugins/knob/jquery.knob.js"></script>
+    <!-- daterangepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="~/AdminTemplate/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="~/AdminTemplate/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="~/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="~/AdminTemplate/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/AdminTemplate/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminTemplate/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/AdminTemplate/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminTemplate/dist/js/demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(function () {
+          //Initialize Select2 Elements
+          $('.select2').select2()
+
+          //Datemask dd/mm/yyyy
+          $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+          //Datemask2 mm/dd/yyyy
+          $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+          //Money Euro
+          $('[data-mask]').inputmask()
+
+          //iCheck for checkbox and radio inputs
+          $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass   : 'iradio_minimal-blue'
+          })
+          //Red color scheme for iCheck
+          $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass   : 'iradio_minimal-red'
+          })
+          //Flat red color scheme for iCheck
+          $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass   : 'iradio_flat-green'
+          })
+
+          //Colorpicker
+          $('.my-colorpicker1').colorpicker()
+          //color picker with addon
+          $('.my-colorpicker2').colorpicker()
+
+
+          $('.normal-example').persianDatepicker();
+
+
+
+
+        })
+    </script>
+</body>
+</html>
+

@@ -1,13 +1,16 @@
 ﻿using Buget_store.Application.Service.User.Queries.GetUsers;
 using Bugeto_store.Domain.Entities.User;
 using Bugeto_store.Persistence.Context;
+using EndPoint.Areas.Admin.ViewModel;
 using EndPoint.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 
 namespace EndPoint.Areas.Admin.Controllers
 {
+   //برای دیدن این کنترلر باید حتما وارد سایت شوند
     public class AccountsController : Controller
     {
         private readonly UserManager<IdentityUser> _UserManager;
@@ -30,20 +33,21 @@ namespace EndPoint.Areas.Admin.Controllers
             return View();
         }
         [Area("Admin")]
-
-        public async Task<IActionResult> IsUserNamelInUse(string user)//بررسی وجود یوزر 
+       
+        public async Task<IActionResult> IsUserNamelInUse(string FullName)//بررسی وجود یوزر 
         {
-            var userName = await _UserManager.FindByNameAsync(user);
+            var userName = await _UserManager.FindByNameAsync(FullName);
             if (userName == null) return Json(true);
-            return Content("یوزر وارد شده قبلا در سیستم ثبت شده است");
+           
+            return Json("یوزر وارد شده قبلا در سیستم ثبت شده است");
         }
         [Area("Admin")]
-        
-        public async Task<IActionResult> IsEmailInUse(string email)//بررسی وجود یوزر 
+    
+        public async Task<IActionResult> IsEmailInUse(string Email)//بررسی وجود یوزر 
         {
-            var userName = await _UserManager.FindByEmailAsync(email);
+            var userName = await _UserManager.FindByEmailAsync(Email);
             if (userName == null) return Json(true);
-            return Content("ایمیل وارد شده قبلا در سیستم ثبت شده است");
+            return Json("ایمیل وارد شده قبلا در سیستم ثبت شده است");
         }
         [Area("Admin")]
         public async Task<IActionResult> ConfirmEmail(string userName,string token)
@@ -119,19 +123,24 @@ namespace EndPoint.Areas.Admin.Controllers
 
             if (_signInManager.IsSignedIn(User))//بررسی loginبودن کاربر
             {
-                return RedirectToAction("register", "Accounts");
+                return RedirectToAction("index", "ManageUser");
             }
 
             ViewData["ReturnUrl"] = ReturnUrl;
             return View();
         }
+
+
+
         [Area("Admin")]
-        [HttpPost]
+       [HttpPost]
         public async Task<IActionResult> Login(Login model, string ReturnUrl = null)
         {
+
+           
             if (_signInManager.IsSignedIn(User))//بررسی loginبودن کاربر
             {
-                return RedirectToAction("register", "Accounts");
+                return RedirectToAction("index", "ManageUser");
             }
             ViewData["returnUrl"] = ReturnUrl;//پرکردنviewdata  در صورت  وارد کردن رمز اشتباه
             if (ModelState.IsValid)
@@ -146,7 +155,7 @@ namespace EndPoint.Areas.Admin.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("register", "Accounts");
+                        return RedirectToAction("Index", "ManageUser");
                     }
                         
                 }
@@ -165,16 +174,17 @@ namespace EndPoint.Areas.Admin.Controllers
             }
             return View(model);
         }
+      
 
 
         [Area("Admin")]
-        [HttpPost]  //فقط به postباید پاسخو باشد
+        [HttpPost]  //فقط به postباید پاسخگو باشد
         [ValidateAntiForgeryToken]
         public IActionResult LogOut()
         {
 
             _signInManager.SignOutAsync();
-            return RedirectToAction("register", "Accounts");
+            return RedirectToAction("Login", "Accounts");
         }
 
         //[Area("Admin")]

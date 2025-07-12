@@ -1,7 +1,8 @@
 ﻿using Buget_store.Application.Interface.Context;
 using Buget_store.Application.Service.User.Queries.GetUsers;
-using Bugeto_store.Domain.Entities.User;
+
 using Bugeto_store.Persistence.Context;
+using EndPoint.Areas.Admin.ViewModel;
 using EndPoint.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,9 +10,13 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-// ثبت سرویس‌های Entity Framework Core
+//Add services to the container.
+builder.Services.AddControllersWithViews()
+    .AddViewOptions(options =>
+    {
+        options.HtmlHelperOptions.ClientValidationEnabled = true;
+    });
+//ثبت سرویس‌های Entity Framework Core
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataBaseContext>(options =>
@@ -31,6 +36,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(option =>
     option.Lockout.MaxFailedAccessAttempts = 3;//default=5
 
 }).AddEntityFrameworkStores<DataBaseContext>().AddDefaultTokenProviders();
+builder.Services.AddAuthorization(option => option.AddPolicy("EmploeeListPolicy", policy => policy.RequireClaim(ClaimTypeStore.EmployeeList, "True")));
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Admin/Accounts/Login"; // correct route
+    options.AccessDeniedPath = "/Amin/Accounts/Login";
+});
 
 var app = builder.Build();
 
@@ -46,9 +57,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
-app.UseAuthentication();    
+app.UseAuthentication(); 
+
+
+
 
 
 app.UseEndpoints(endpoints =>

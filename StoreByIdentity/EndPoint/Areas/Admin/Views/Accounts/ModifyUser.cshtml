@@ -1,4 +1,4 @@
-﻿@using Bugeto_store.Domain.Entities.User;
+﻿@using EndPoint.Areas.Admin.ViewModel;;
 @model User
 <!DOCTYPE html>
 <html>
@@ -380,7 +380,8 @@
                 <h2>ثبت کاربر جدید</h2>
                 <div class="form-row-total">
                     <div class="form-row">
-                        <input type="text" name="fullName" id="full-name" class="input-text" placeholder="نام کاربری خود را وارد نمایید" required>
+                        <input asp-for="FullName" type="text" id="full-name" class="input-text" placeholder="نام کاربری خود را وارد نمایید" required>
+                        <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
                     <div class="form-row">
                         <input asp-for="Email" class="input-text" placeholder="آدرس ایمیل را وراد نمایید" id="your-email" class="input-text" />
@@ -465,6 +466,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="~/AdminTemplate/dist/js/demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script>
         $(function () {
           //Initialize Select2 Elements

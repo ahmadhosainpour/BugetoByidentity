@@ -14,4 +14,3 @@ namespace Buget_store.Application.Service.User.Queries.GetUsers
         ResultGetUserDto Execute(RequestGetUserDto request);//search users
     }
 }
- 

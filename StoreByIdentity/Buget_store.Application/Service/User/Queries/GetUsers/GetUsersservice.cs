@@ -20,7 +20,7 @@ namespace Buget_store.Application.Service.User.Queries.GetUsers
             }
 
             int rowscount = 0;
-            var userList= Users.ToPaged(request.Page, 20, out rowscount).Select(p => new GetUsersDto
+            var userList = Users.ToPaged(request.Page, 20, out rowscount).Select(p => new GetUsersDto
             {
                 Email = p.Email,
                 FullName = p.FullName,
@@ -30,12 +30,12 @@ namespace Buget_store.Application.Service.User.Queries.GetUsers
 
             return new ResultGetUserDto
             {
-                Rows= rowscount,
-                Users= userList
+                Rows = rowscount,
+                Users = userList
             };
 
         }
 
-      
+
     }
 }

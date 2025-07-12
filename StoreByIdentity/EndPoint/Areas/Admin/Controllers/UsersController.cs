@@ -3,6 +3,8 @@ using Buget_store.Application.Interface.Context;
 using Buget_store.Application.Service.User.Queries.GetUsers;
 using Bugeto_store.Domain.Entities.User;
 using Bugeto_store.Persistence.Context;
+using EndPoint.Areas.Admin.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,6 +19,7 @@ using System.Text;
 
 namespace EndPoint.Areas.Admin.Controllers
 {
+  //  [Authorize]
     public class UsersController : Controller
     {
 
@@ -42,7 +45,7 @@ namespace EndPoint.Areas.Admin.Controllers
         }
 
 
-
+        [AllowAnonymous]
         [Area("Admin")]
         public async Task<IActionResult> UserManager()
         {

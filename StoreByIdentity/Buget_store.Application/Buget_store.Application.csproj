@@ -12,11 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bugeto_store.Common\Bugeto_store.Common.csproj" />
-    <ProjectReference Include="..\Bugeto_store.Domain\Bugeto_store.Domain.csproj" />
-  </ItemGroup>
+    <ProjectReference Include="..\Bugeto_store.DomainNew\Bugeto_store.Domain.csproj" />
 
-  <ItemGroup>
-    <Folder Include="Service\User\Commands\" />
   </ItemGroup>
 
 </Project>

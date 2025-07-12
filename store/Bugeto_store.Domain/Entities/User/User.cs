@@ -18,13 +18,15 @@ namespace Bugeto_store.Domain.Entities.User
         [Required]
         public string FullName { get; set; }
         [DisplayName("آدرس ایمیل")]
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "لطفا ایمیل را وارد نماید")]
+        [EmailAddress(ErrorMessage = "آدرس ایمیل اشتباه است")]
         public string Email { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         public string PassWord { get; set; }
         [Required]
         [Compare(nameof(PassWord))]
+        [DataType(DataType.Password)]
         public string ConfirmPassWord { get; set; }
         [Required]
         public string Role { get; set; }

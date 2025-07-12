@@ -1,6 +1,9 @@
 body {
     margin: 0;
 }
+b {
+    color:#000000
+}
 
 .page-content {
     width: 100vw;
@@ -8,7 +11,7 @@ body {
     height:100vh;
     margin: 0 auto;
   
-    background-color: #9fa7e9;
+
 
     display: flex;
     display: -webkit-flex;
@@ -23,7 +26,7 @@ body {
     -moz-align-items: center;
     -webkit-align-items: center;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #ffffff;
+    
 }
 
 .form-v9-content {
@@ -35,7 +38,7 @@ body {
     -webkit-border-radius: 15px;
     margin: 185px 0;
     font-family: 'Nunito', sans-serif;
-    color: #fff;
+    color: #000;
     font-weight: 700;
     font-size: 16px;
     position: relative;
